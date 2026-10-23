@@ -31,8 +31,8 @@ export default function SafetyNotice() {
           <p>
             AfyaLink does not diagnose, prescribe, or replace a qualified health professional.
             This prototype uses <strong>fictional data only</strong> and is not intended for
-            clinical use. It is a community follow-up coordination tool built for the IEEE Day
-            2026 Buildathon.
+            clinical use. It is a lightweight community follow-up coordination tool designed
+            for frontline health workers and primary care navigation.
           </p>
         </div>
       </div>

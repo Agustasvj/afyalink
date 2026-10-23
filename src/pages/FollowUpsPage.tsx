@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Plus, Search, Download, ClipboardList } from 'lucide-react';
+import { Plus, Search, Download, ClipboardList, Filter } from 'lucide-react';
 import FollowUpList from '../components/FollowUpList';
 import FollowUpForm from '../components/FollowUpForm';
 import type { FollowUp, Status, CreateFollowUpInput, FollowUpFilters } from '../features/follow-ups/types';
@@ -62,7 +62,7 @@ export default function FollowUpsPage({ repo }: FollowUpsPageProps) {
     async (input: CreateFollowUpInput) => {
       await repo.createFollowUp(input);
       setShowForm(false);
-      showToast('Follow-up added successfully.', 'success');
+      showToast('Follow-up record added', 'success');
       await loadData();
     },
     [repo, loadData]
@@ -72,11 +72,11 @@ export default function FollowUpsPage({ repo }: FollowUpsPageProps) {
     async (id: string, status: Status) => {
       try {
         await repo.updateFollowUpStatus(id, status);
-        showToast('Status updated.', 'success');
+        showToast('Status updated', 'success');
         await loadData();
       } catch (e) {
         console.error(e);
-        showToast('Failed to update status.', 'error');
+        showToast('Failed to update status', 'error');
       }
     },
     [repo, loadData]
@@ -91,66 +91,72 @@ export default function FollowUpsPage({ repo }: FollowUpsPageProps) {
     a.download = `afyalink-follow-ups-${new Date().toISOString().split('T')[0]}.csv`;
     a.click();
     URL.revokeObjectURL(url);
-    showToast('CSV exported.', 'success');
+    showToast('CSV exported successfully', 'success');
   };
 
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">
-          <ClipboardList size={24} />
-          Follow-up Register
+        <span className="eyebrow">Frontline Management</span>
+        <h1 className="page-title serif-display">
+          <ClipboardList size={28} style={{ color: 'var(--clr-accent-mint)' }} />
+          Follow-Up Register
         </h1>
         <p className="page-description">
-          Manage community follow-ups. All records are fictional demo data.
+          Review, filter, and update patient follow-up lifecycles across your community catchment.
         </p>
       </div>
 
-      {/* Toolbar */}
+      {/* Toolbar with Santa Cruz Pill Styling */}
       <div className="toolbar">
         <div className="search-input-wrapper">
           <Search />
           <input
             type="search"
             className="search-input"
-            placeholder="Search by name, category, or code…"
+            placeholder="Search by pseudonym, category, or code…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             aria-label="Search follow-ups"
           />
         </div>
 
-        <select
-          className="form-select"
-          style={{ width: 'auto', minWidth: '160px' }}
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value as Status | '')}
-          aria-label="Filter by status"
-        >
-          <option value="">All statuses</option>
-          {STATUSES.map((s) => (
-            <option key={s} value={s}>
-              {STATUS_LABELS[s]}
-            </option>
-          ))}
-        </select>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <Filter size={15} style={{ color: 'var(--clr-text-muted)' }} />
+            <select
+              className="form-select"
+              style={{ width: 'auto', minWidth: '160px', borderRadius: 'var(--radius-pill)', padding: '9px 16px' }}
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value as Status | '')}
+              aria-label="Filter by status"
+            >
+              <option value="">All statuses ({followUps.length})</option>
+              {STATUSES.map((s) => (
+                <option key={s} value={s}>
+                  {STATUS_LABELS[s]}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <button className="btn btn-secondary btn-sm" onClick={handleExport} title="Export CSV">
-          <Download size={16} />
-          Export
-        </button>
+          <button className="pill-btn" onClick={handleExport} title="Export CSV">
+            <Download size={14} />
+            Export CSV
+          </button>
 
-        <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-          <Plus size={18} />
-          Add Follow-Up
-        </button>
+          <button className="pill-btn primary" onClick={() => setShowForm(true)}>
+            <Plus size={16} />
+            Add Follow-Up
+          </button>
+        </div>
       </div>
 
-      {/* Follow-up list */}
-      <div className="card">
+      {/* Follow-up list in dark glass container */}
+      <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         {loading ? (
-          <div className="empty-state" style={{ padding: 'var(--space-lg)' }}>
-            <p>Loading…</p>
+          <div className="empty-state" style={{ padding: 'var(--space-2xl)' }}>
+            <p>Loading records…</p>
           </div>
         ) : (
           <FollowUpList followUps={followUps} onStatusChange={handleStatusChange} />

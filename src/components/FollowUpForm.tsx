@@ -158,11 +158,11 @@ export default function FollowUpForm({ onSubmit, onCancel }: FollowUpFormProps) 
           </div>
 
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onCancel}>
+            <button type="button" className="pill-btn" onClick={onCancel}>
               Cancel
             </button>
-            <button type="submit" className="btn btn-primary" disabled={saving}>
-              <Save size={18} />
+            <button type="submit" className="pill-btn primary" disabled={saving}>
+              <Save size={16} />
               {saving ? 'Saving…' : 'Save Follow-Up'}
             </button>
           </div>

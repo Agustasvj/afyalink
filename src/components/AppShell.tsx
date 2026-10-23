@@ -6,7 +6,7 @@ import {
   ShieldAlert,
   Menu,
   X,
-  AlertTriangle,
+  Sparkles,
 } from 'lucide-react';
 
 export type Page = 'dashboard' | 'follow-ups' | 'member-view' | 'about-safety';
@@ -44,13 +44,13 @@ export default function AppShell({ currentPage, onNavigate, children }: AppShell
           onClick={() => setSidebarOpen(true)}
           aria-label="Open navigation"
         >
-          <Menu size={24} />
+          <Menu size={22} />
         </button>
         <div className="sidebar-brand">
-          <span className="sidebar-title">AfyaLink</span>
+          <span className="sidebar-title serif-display">AfyaLink</span>
         </div>
         <span className="demo-badge">
-          <AlertTriangle size={12} />
+          <Sparkles size={11} />
           Demo
         </span>
       </header>
@@ -67,8 +67,8 @@ export default function AppShell({ currentPage, onNavigate, children }: AppShell
           <div className="sidebar-brand">
             <div className="sidebar-logo">A</div>
             <div>
-              <div className="sidebar-title">AfyaLink</div>
-              <div className="sidebar-subtitle">Community follow-up</div>
+              <div className="sidebar-title serif-display">AfyaLink</div>
+              <div className="sidebar-subtitle">Community Health</div>
             </div>
           </div>
           {/* Close button for mobile */}
@@ -76,7 +76,7 @@ export default function AppShell({ currentPage, onNavigate, children }: AppShell
             className="menu-toggle"
             onClick={() => setSidebarOpen(false)}
             aria-label="Close navigation"
-            style={{ display: sidebarOpen ? 'flex' : 'none', marginTop: '8px' }}
+            style={{ display: sidebarOpen ? 'flex' : 'none', marginTop: '4px' }}
           >
             <X size={20} />
           </button>
@@ -96,9 +96,9 @@ export default function AppShell({ currentPage, onNavigate, children }: AppShell
         </nav>
 
         <div className="sidebar-footer">
-          <span className="demo-badge">
-            <AlertTriangle size={12} />
-            Demo data only
+          <span className="demo-badge" style={{ width: '100%', justifyContent: 'center' }}>
+            <Sparkles size={12} />
+            Demo data · Local
           </span>
         </div>
       </aside>
