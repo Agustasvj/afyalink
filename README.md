@@ -1,4 +1,4 @@
-# AfyaLink — Low-Bandwidth Community Health Navigation & Follow-Up Tool
+# AfyaLink : Low-Bandwidth Community Health Navigation & Follow-Up Tool
 
 
 
