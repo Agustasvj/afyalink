@@ -5,6 +5,7 @@
 [![Licence: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![Demo Data](https://img.shields.io/badge/Data-Synthetic%20Demo%20Only-orange.svg)]()
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/agustasvj/afyalink?utm_source=readme&utm_medium=badge)
 
 ---
 
@@ -53,6 +54,8 @@ AfyaLink solves the follow-up gap through a calm, focused, and resilient tool:
 ---
 
 ## 4. Architecture and Data Flow
+
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/agustasvj/afyalink?utm_source=readme&utm_medium=badge)
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
