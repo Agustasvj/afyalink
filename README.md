@@ -55,7 +55,7 @@ AfyaLink solves the follow-up gap through a calm, focused, and resilient tool:
 
 ## 4. Architecture and Data Flow
 
-[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/agustasvj/afyalink?utm_source=readme&utm_medium=badge)
+[![Architecture diagram of agustasvj/afyalink](https://gitdiagram.com/agustasvj/afyalink/diagram.png)](https://gitdiagram.com/agustasvj/afyalink?utm_source=readme&utm_medium=picture)
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
