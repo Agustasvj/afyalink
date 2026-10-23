@@ -1,6 +1,6 @@
 # AfyaLink — Low-Bandwidth Community Health Navigation & Follow-Up Tool
 
-> **One-sentence pitch:** A mobile-first, low-bandwidth web app that empowers community health workers to coordinate non-emergency follow-ups and helps community members clearly understand their next step for accessing care.
+
 
 [![Licence: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
